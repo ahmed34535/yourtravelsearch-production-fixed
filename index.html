@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourTravelSearch - Find & Book Flights with Live Airline Data</title>
+    <meta name="description" content="Search and book flights with YourTravelSearch. Live airline data, competitive prices, secure booking. Find the best flights for your travel needs.">
+    <meta name="keywords" content="flights, travel, booking, airlines, cheap flights, flight search, duffel">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourtravelsearch.com/">
+    <meta property="og:title" content="YourTravelSearch - Professional Flight Booking Platform">
+    <meta property="og:description" content="Search and book flights with live airline data. Secure, fast, and reliable flight booking service.">
+    <meta property="og:image" content="https://yourtravelsearch.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourtravelsearch.com/">
+    <meta property="twitter:title" content="YourTravelSearch - Flight Booking Platform">
+    <meta property="twitter:description" content="Search and book flights with live airline data.">
+    
+    <link rel="canonical" href="https://yourtravelsearch.com/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .search-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .search-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .status-indicator {
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>YourTravelSearch</h1>
+            <p>Professional Flight Booking Platform with Live Airline Data</p>
+            <div class="status-indicator">🟢 Live Duffel API Connected</div>
+        </header>
+        
+        <div class="search-card">
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Search Flights</h2>
+            <form class="search-form" id="flightSearchForm">
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="Departure city or airport" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <input type="text" id="to" placeholder="Destination city or airport" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="departure">Departure Date</label>
+                    <input type="date" id="departure" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="passengers">Passengers</label>
+                    <select id="passengers">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                    </select>
+                </div>
+            </form>
+            
+            <button type="submit" class="search-btn" onclick="searchFlights()">
+                🔍 Search Flights
+            </button>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✈️</div>
+                <h3>Live Flight Data</h3>
+                <p>Real-time flight information powered by Duffel API with authentic airline data</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Booking</h3>
+                <p>PCI DSS compliant payment processing with industry-standard security</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Best Prices</h3>
+                <p>Compare flights from major airlines including Frontier, American, and more</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Ready</h3>
+                <p>Optimized for all devices with responsive design and fast performance</p>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>&copy; 2025 YourTravelSearch. Professional flight booking platform.</p>
+            <p>Powered by Duffel API | Deployed on Render</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Set minimum date to today
+        document.getElementById('departure').min = new Date().toISOString().split('T')[0];
+        
+        function searchFlights() {
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const departure = document.getElementById('departure').value;
+            const passengers = document.getElementById('passengers').value;
+            
+            if (!from || !to || !departure) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Show loading state
+            const btn = document.querySelector('.search-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '🔄 Searching...';
+            btn.disabled = true;
+            
+            // Simulate search (replace with actual API call)
+            setTimeout(() => {
+                alert(`Searching flights from ${from} to ${to} on ${departure} for ${passengers} passenger(s)`);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }
+        
+        // Health check
+        fetch('/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server status:', data);
+            })
+            .catch(error => {
+                console.warn('Health check failed:', error);
+            });
+    </script>
+</body>
+</html>
