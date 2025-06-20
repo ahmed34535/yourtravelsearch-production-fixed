@@ -1,0 +1,35 @@
+{
+  "name": "yourtravelsearch-production",
+  "version": "1.0.0",
+  "description": "YourTravelSearch - Professional Flight Booking Platform with Live Duffel API Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install --only=production",
+    "dev": "node server.js",
+    "test": "node deployment-readiness-check.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "keywords": [
+    "travel",
+    "flights",
+    "booking",
+    "duffel",
+    "airlines",
+    "express",
+    "production"
+  ],
+  "author": "YourTravelSearch Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmed34535/yourtravelsearch-production-fixed.git"
+  },
+  "homepage": "https://yourtravelsearch.com"
+}
